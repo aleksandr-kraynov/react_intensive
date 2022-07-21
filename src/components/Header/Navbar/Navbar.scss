@@ -1,0 +1,27 @@
+@import '@scss/_variables.scss';
+
+
+.navbar{
+    display: flex;
+    margin: 32px 0 0;
+    list-style: none;
+    overflow: auto; 
+    &::-webkit-scrollbar {
+        display: none;
+    }    
+}
+
+.navbar-button {
+    background-color: rgba(0, 0, 0, 0);
+    color: $c-secondary-font;        
+    padding: 10px 20px;
+    cursor: pointer;   
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;   
+    &:active {
+        border: 1px solid $c-secondary-font;
+        border-radius: 32px;        
+    }
+}
+
