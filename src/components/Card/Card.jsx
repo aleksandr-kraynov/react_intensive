@@ -5,7 +5,7 @@ import image from '@image/image.png'
 
 function Card() {
     return (
-        <aside className='card'> 
+        <article className='card'> 
             <div className='card__image-wrapper'>
                 <img className='card__image' src={image} alt="Изображение напитка"/>  
             </div>                                                  
@@ -21,7 +21,7 @@ function Card() {
                 <p className='card__degree-value'>30%</p>
                 <p className='card__degree-title'>Алкоголь</p>
             </div>          
-        </aside>
+        </article>
     );
 }
 
