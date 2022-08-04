@@ -1,11 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import './Footer.scss';
+import { Context } from '../../App'
 
 function Footer() {
+    const { setValue } = useContext(Context);
+    
     return (
-        <footer class="footer">
-            <div class="container">
-                <button class="button">Поиск</button>
+        <footer className="footer">
+            <div className="container">                
+                <input className="search" placeholder='Поиск' onChange={(event) => setValue(event.target.value)}></input>                              
             </div>         
         </footer>
     );

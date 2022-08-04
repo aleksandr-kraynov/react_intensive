@@ -1,0 +1,19 @@
+@import '@scss/_variables.scss';
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 24px 32px;   
+    margin: 168px 0 104px;
+}
+
+.loading {
+    color: $c-primary-font;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+}
