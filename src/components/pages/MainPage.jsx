@@ -2,7 +2,7 @@ import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/Header';
 import List from '@components/List/List';
 
-function Main() {
+function MainPage() {
     return (
       <div className='wrapper'>
         <Header />      
@@ -12,4 +12,4 @@ function Main() {
     );
   }
 
-export default Main;  
+export default MainPage;  

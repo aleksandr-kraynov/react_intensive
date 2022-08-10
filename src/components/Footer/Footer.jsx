@@ -1,11 +1,17 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Footer.scss';
-import { Context } from '../../App'
+import { useDispatch } from 'react-redux';
+import { filteredCoctails } from '../../redux/reducers/filterSlice';
 
-function Footer() {
-    const { setValue } = useContext(Context);
-    
+
+function Footer() {    
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(filteredCoctails(value))
+    })
+ 
     return (
         <footer className="footer">
             <div className="container">                

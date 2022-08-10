@@ -1,30 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import Card from '@components/Card/Card';
 import './List.scss';
-import { Context } from '../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCoctails } from '../../redux/reducers/filterSlice';
 
-function List() {
-    const {error} = useContext(Context);
-    const {isLoaded} = useContext(Context);    
-    const {filtered} = useContext(Context);
-    
-    if (error) {
-    return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {     
-        return <div className='loading'>Загрузка...</div>               
-    } else {            
-        return (
-            <main className="main">
-                <div className="container">   
-                    <section className='cards'>
-                    {filtered.map(item => (
-                        <Card item={item}/> 
-                    ))}                                                                                      
-                    </section>                         
-                </div>
-            </main>
-        );
+function List() {    
+    const dispatch = useDispatch();
+    const {status, error} = useSelector(state => state.coctails)
+
+    useEffect(() => {
+      dispatch(fetchCoctails());      
+    }, [dispatch]);
+
+    const items = useSelector((state) => state.coctails.coctails); 
+               
+    return (
+        <main className="main">
+            <div className="container">   
+                <section className='cards'>
+
+                {status === 'loading' && <div className='status'>Загрузка...</div>}
+                {error && <div className='status'>Ошибка: {error.message}</div>}
+
+                {items.map(item => (
+                    <Card item={item}/> 
+                ))}                                                                                      
+                </section>                         
+            </div>
+        </main>
+    );
     }
-}
+
 
 export default List;

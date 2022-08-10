@@ -1,7 +1,8 @@
 import React from 'react';
 import '@components/Header/Navbar/Navbar.scss';
-import { useState, useEffect, useContext } from 'react';
-import { Context } from '../../../App'
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { categoryNew, categoryAll, categorySweet, categoryTop, categoryStrong } from '../../../redux/reducers/filterSlice';
 
 function Navbar({category}) {    
     const [activeItem, setActiveItem] = useState(null);
@@ -10,28 +11,24 @@ function Navbar({category}) {
         setActiveItem(index)
     }
 
-    const {categoryAll} = useContext(Context);
-    const {categoryNew} = useContext(Context);
-    const {categorySweet} = useContext(Context);
-    const {categoryTop} = useContext(Context);
-    const {categoryStrong} = useContext(Context);
+    const dispatch = useDispatch();    
        
     useEffect(() => {
         switch(activeItem) {            
             case 0: 
-                categoryNew(); 
-            break;
+                dispatch(categoryNew()); 
+            break; 
             case 1: 
-                categorySweet(); 
-            break;
+                dispatch(categorySweet()); 
+            break; 
             case 2: 
-                categoryTop(); 
-            break;
+                dispatch(categoryTop()); 
+            break; 
             case 3: 
-                categoryStrong(); 
-            break;
+                dispatch(categoryStrong()); 
+            break; 
             default:
-                categoryAll(); 
+                dispatch(categoryAll()); 
         }               
     }, [activeItem])
 
