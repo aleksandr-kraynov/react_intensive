@@ -1,31 +1,26 @@
-import Footer from '@components/Footer/Footer';
-import Header from '@components/Header/Header';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCoctails } from '../../redux/reducers/filterSlice';
+import { fetchCoctail } from '../../redux/reducers/detailPageSlice';
+import Detail from '../Detail/Detail';
 
 function DetailPage() {
-    // const dispatch = useDispatch();
-    // const {status, error} = useSelector(state => state.coctails)
+    const dispatch = useDispatch();
+    const {id} = useParams();
+    const {status, error} = useSelector(state => state.coctail)
 
-    // useEffect(() => {
-    //   dispatch(fetchCoctails());      
-    // }, [dispatch]);
+    useEffect(() => {
+      dispatch(fetchCoctail(id));      
+    }, [dispatch, id]);
 
-    // const items = useSelector((state) => state.coctails.coctails); 
+    const item = useSelector((state) => state.coctail.coctail); 
 
     return (
-      <div className='wrapper'>
-        <Header />     
-        {/* {status === 'loading' && <div className='status'>Загрузка...</div>}
-        {error && <div className='status'>Ошибка: {error.message}</div>}  */}
+      <div className='wrapper'>            
+        {status === 'loading' && <div className='status'>Загрузка...</div>}
+        {error && <div className='status'>Ошибка: {error.message}</div>} 
 
-        <div>
-        {/* {items.map(item => (
-               <p>{item.name}</p>     
-        ))}   */}
-        </div>
-        <Footer />
+        <Detail item={item} />        
       </div>   
     );
   }
