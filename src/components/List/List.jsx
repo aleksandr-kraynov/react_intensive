@@ -6,30 +6,30 @@ import { fetchCoctails } from '../../redux/reducers/filterSlice';
 
 function List() {    
     const dispatch = useDispatch();
-    const {status, error} = useSelector(state => state.coctails)
+    const {status, error, coctails} = useSelector(state => state.coctails)
 
     useEffect(() => {
       dispatch(fetchCoctails());      
     }, [dispatch]);
 
-    const items = useSelector((state) => state.coctails.coctails); 
-               
+    
+    if (status === 'loading') {
+        return <div className='status'>Загрузка...</div>;
+    } else if (status === 'rejected') { 
+        return <div className='status'>Ошибка: {error.message}</div>
+    } else {    
     return (
         <main className="main">
             <div className="container">   
                 <section className='cards'>
-
-                {status === 'loading' && <div className='status'>Загрузка...</div>}
-                {error && <div className='status'>Ошибка: {error.message}</div>}
-
-                {items.map(item => (
-                    <Card item={item}/> 
+                {coctails.map(item => (
+                    <Card key={item.id} item={item}/> 
                 ))}                                                                                      
                 </section>                         
             </div>
         </main>
     );
     }
-
+}
 
 export default List;

@@ -27,7 +27,7 @@ function Detail(props) {
                             <p className='detail__ingredients-title'>Ингредиенты</p>
                             <div className='detail__ingredients-content'>                               
                                 {props.item.ingredients?.map(item => (
-                                    <div className='detail__ingredients-list'><span className='detail__ingredients-item'>{item.ingredient}</span> <span className='detail__ingredients-value'>{item.quantity}</span></div>
+                                    <div className='detail__ingredients-list' key={item.ingredient}><span className='detail__ingredients-item'>{item.ingredient}</span> <span className='detail__ingredients-value'>{item.quantity}</span></div>
                                 ))}                                                                                     
                             </div>
                         </div> 
@@ -43,4 +43,4 @@ function Detail(props) {
 }
 
 
-export default Detail;
+export default React.memo(Detail);
