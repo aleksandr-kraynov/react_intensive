@@ -14,7 +14,7 @@ function Header() {
                         <img src={logo} alt="Логотип компании"/>
                     </a>
                 </div>
-                <Navbar />
+                <Navbar category={['Новинки', 'Сладкие', 'Хит', 'Крепкие']} />
             </div>            
         </header>         
     );

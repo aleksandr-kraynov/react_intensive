@@ -18,10 +18,11 @@
     cursor: pointer;   
     font-weight: 300;
     font-size: 18px;
-    line-height: 21px;   
-    &:active {
-        border: 1px solid $c-secondary-font;
-        border-radius: 32px;        
-    }
+    line-height: 21px;    
+}
+
+.active {
+    border: 1px solid $c-secondary-font;
+    border-radius: 32px;        
 }
 

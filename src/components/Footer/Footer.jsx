@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Footer.scss';
+import { useDispatch } from 'react-redux';
+import { filteredCoctails } from '../../redux/reducers/filterSlice';
 
-function Footer() {
+
+function Footer() {    
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(filteredCoctails(value))
+    })
+ 
     return (
-        <footer class="footer">
-            <div class="container">
-                <button class="button">Поиск</button>
+        <footer className="footer">
+            <div className="container">                
+                <input className="search" placeholder='Поиск' onChange={(event) => setValue(event.target.value)}></input>                              
             </div>         
         </footer>
     );

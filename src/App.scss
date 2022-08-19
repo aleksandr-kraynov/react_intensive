@@ -10,13 +10,13 @@
 html,
 body {
     height: 100%;    
+    background-color: $c-primary-background;
 }
 
 .wrapper {    
     display: flex;
     flex-direction: column;
-    min-height: 100%;
-    background-color: $c-primary-background;
+    min-height: 100%;    
 }
 
 .container {    
@@ -35,4 +35,19 @@ body {
     font-size: 18px;
     line-height: 17px;
     cursor: pointer;
+    &__navigate {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        position: absolute;
+        left: 32px;
+        top: 32px;
+        &::after {
+            content: "";
+            display: block;
+            width: 14px;
+            height: 24px;
+            background: url(./image/arrow.svg);
+        }
+    }
 }

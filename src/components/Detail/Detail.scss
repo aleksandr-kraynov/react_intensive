@@ -1,0 +1,81 @@
+@import '@scss/_variables.scss';
+
+.container__detail {
+    padding: 0;
+}
+
+.detail {
+    position: relative;
+    &__image-wrapper {
+        margin-bottom: 32px;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__description {
+        margin-bottom: 32px;
+    }
+
+    &__title {
+        color: $c-primary-font;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.07em;
+    }
+
+    &__subtitle {
+        color: $c-secondary-font;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    &__ingredients-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__ingredients-list {        
+        &::after {
+            content: '';
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;             
+            border-bottom: 1px dotted #ddd;
+            margin-top: 15px;
+        }
+    }
+
+    &__ingredients-item {
+        float: left;
+        margin-right: 5px;
+    }
+
+    &__ingredients-value {
+        text-align: end;
+        float: right;
+        margin-left: 5px;
+    }
+
+    &__ingredients,
+    &__recipe {
+        color: $c-secondary-font;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 21px;
+        margin-bottom: 32px;
+    }
+
+    &__ingredients-title,
+    &__recipe-title {
+        color: $c-primary-font;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 21px;   
+        margin-bottom: 8px;     
+    }
+}
+
