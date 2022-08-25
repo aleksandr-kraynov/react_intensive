@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCoctail } from '../../redux/reducers/detailPageSlice';
+import { fetchCoctail, selectCoctail } from '../../redux/reducers/detailPageSlice';
 import Detail from '../Detail/Detail';
 
 function DetailPage() {    
     const dispatch = useDispatch();
     const {id} = useParams();
-    const {status, error, coctail} = useSelector(state => state.coctail)
+    const {status, error, coctail} = useSelector(selectCoctail);
 
     useEffect(() => {
       dispatch(fetchCoctail(id));      

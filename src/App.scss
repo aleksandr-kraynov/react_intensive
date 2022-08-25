@@ -49,5 +49,9 @@ body {
             height: 24px;
             background: url(./image/arrow.svg);
         }
+        &:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s;            
+        }
     }
 }
