@@ -41,4 +41,6 @@ export const detailPageSlice = createSlice({
     },
 });
 
+export const selectCoctail = (state) => state.coctail;
+
 export default detailPageSlice.reducer;

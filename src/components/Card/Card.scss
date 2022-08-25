@@ -46,6 +46,13 @@
         letter-spacing: 0.07em;
     }
 
+    &__empty-title {
+        position: absolute;
+        top: 40px;
+        left: 32px;
+        font-weight: 400;
+    }
+
     &__subtitle {
         color: $c-secondary-font;
         font-weight: 300;

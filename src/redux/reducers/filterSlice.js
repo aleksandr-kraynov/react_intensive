@@ -26,7 +26,7 @@ export const coctailsSlice = createSlice({
     },
     reducers: {
         filteredCoctails: (state, action) => {
-            state.coctails = state.coctailsFiltered.filter (item => item.name.toLowerCase().includes(action.payload));
+            state.coctails = state.coctailsFiltered.filter (item => item.name.toLowerCase().includes(action.payload));            
         },
         categoryAll: (state) => {
             state.coctails = state.coctailsFiltered;
@@ -63,5 +63,7 @@ export const coctailsSlice = createSlice({
 });
 
 export const { filteredCoctails, categoryAll, categoryNew, categorySweet, categoryTop, categoryStrong } = coctailsSlice.actions;
+
+export const selectCoctails = (state) => state.coctails;
 
 export default coctailsSlice.reducer;
